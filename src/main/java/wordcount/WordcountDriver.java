@@ -18,6 +18,11 @@ import java.io.IOException;
 public class WordcountDriver {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration conf = new Configuration();
+
+        // 本地调试MapReduce
+        conf.set("mapreduce.framework.name","local");
+        conf.set("fs.defaultFS","file:///");
+
         Job job = Job.getInstance(conf);
 
         // 指定本程序的jar包所在本地路径
