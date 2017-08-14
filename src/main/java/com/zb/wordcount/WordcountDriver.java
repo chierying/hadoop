@@ -1,4 +1,4 @@
-package wordcount;
+package com.zb.wordcount;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -20,7 +20,7 @@ public class WordcountDriver {
         Configuration conf = new Configuration();
 
         // 本地调试MapReduce
-        conf.set("mapreduce.framework.name","local");
+        conf.set("mrjoin.framework.name","local");
         conf.set("fs.defaultFS","file:///");
 
         Job job = Job.getInstance(conf);
