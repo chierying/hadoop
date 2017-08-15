@@ -20,7 +20,7 @@ public class WordcountDriver {
         Configuration conf = new Configuration();
 
         // 本地调试MapReduce
-        conf.set("mrjoin.framework.name","local");
+        conf.set("mapsidejoin.framework.name","local");
         conf.set("fs.defaultFS","file:///");
 
         Job job = Job.getInstance(conf);

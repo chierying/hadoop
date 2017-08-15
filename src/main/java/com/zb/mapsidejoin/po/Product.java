@@ -1,4 +1,4 @@
-package com.zb.mrjoin.po;
+package com.zb.mapsidejoin.po;
 
 import lombok.Data;
 
