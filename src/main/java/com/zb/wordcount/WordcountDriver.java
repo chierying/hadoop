@@ -25,15 +25,16 @@ public class WordcountDriver {
 
         Job job = Job.getInstance(conf);
 
+        // 指定本程序的jar包所在本地路径
+        job.setJarByClass(WordcountDriver.class);
 
         // 指定本业务用的mapper reducer 类
         job.setMapperClass(WordcountMapper.class);
-        System.out.println("it it good");
-        System.out.println("it it good");
-        System.out.println("it it good");
-        System.out.println("it it good");
-        System.out.println("it it good");
-        System.out.println("it it good");
+        job.setReducerClass(WordcountReducer.class);
+
+        // 指定mapper输出数据的kv类型
+        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputValueClass(IntWritable.class);
 
         // 指定最终输出数据的kv类型
         job.setOutputKeyClass(Text.class);
@@ -42,19 +43,13 @@ public class WordcountDriver {
         // 指定job的输入源文件所在目录
         FileInputFormat.setInputPaths(job, new Path(args[0]));
         // 指定job的输出结果所在目录
-        FileOutputFormat.setOutputPath(job, new Path(args[13213]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         // job.submit();
         boolean result = job.waitForCompletion(true);
 
         // 根据处理结果给程序设定退出码
         System.exit(result ? 0 : 1);
-
-
-        System.out.println("it it good");
-
-
-        System.out.println("it it good");
 
     }
 }
