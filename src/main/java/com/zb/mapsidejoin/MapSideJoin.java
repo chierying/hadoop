@@ -68,11 +68,11 @@ public class MapSideJoin {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(NullWritable.class);
 
-        FileInputFormat.setInputPaths(job, new Path("D:\\hadoop\\mrjoin\\in\\order.txt"));
-        FileOutputFormat.setOutputPath(job, new Path("D:\\hadoop\\mrjoin\\out"));
+        FileInputFormat.setInputPaths(job, new Path("D:\\workspace\\hadoop\\src\\main\\java\\com\\zb\\mapsidejoin\\inputdir\\order.txt"));
+        FileOutputFormat.setOutputPath(job, new Path("D:\\workspace\\hadoop\\src\\main\\java\\com\\zb\\mapsidejoin\\outputdir"));
 
         // 将产品列表文件缓存到task工作节点的工作目录中去
-        job.addCacheFile(new URI("file://D:/hadoop/mrjoin/in/product.txt"));
+        job.addCacheFile(new URI("file:///D:/workspace/hadoop/src/main/java/com/zb/mapsidejoin/inputdir/product.txt"));
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
